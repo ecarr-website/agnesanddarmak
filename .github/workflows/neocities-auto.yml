@@ -1,0 +1,41 @@
+#adapted from https://codeberg.org/wise/neocities/src/branch/main/.forgejo/workflows/deploy-neocities.yml and Bret Comnes' `deploy-to-neocities` workflow.
+# (https://github.com/bcomnes/deploy-to-neocities)
+
+
+name: "Deploy to Neocities"
+
+#scheduling the job to run twice a day
+on:
+  schedule:
+    - cron: 0 8/9 * * *
+
+#also run this job when you push to the main branch
+  push:
+    branches:
+      - main 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest #runner (machine) that handles the job
+
+    steps:
+    - uses: actions/checkout@v4
+    # This tool uses a Node.js toolchain to build a site
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install deps and build
+      run: |
+        npm i
+        npm run build
+
+    # When the dist_dir is ready, deploy it to neocities
+    - name: Deploy to neocities
+      uses: bcomnes/deploy-to-neocities@v3
+
+      with:
+        api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
+        cleanup: true #deletes anything outside of the site directory from your neocities site
+        neocities_supporter: true #set to false if you don't have a paid neocities account
+        dist_dir: _site #the directory where your public facing site files are located

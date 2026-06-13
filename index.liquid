@@ -14,11 +14,14 @@ individual collections to use within templates.
 {% endcomment %}{%# %}
 
 {%# If you want the first comic instead of the latest, set `last` to `first` %}
+
 {% assign latest = collections.comic | last %}
 <div class="comic{% if latest.data.spread %} double-page{% endif %}">
   {% render 'comic.liquid', collection: collections.comic, page: latest.page, images: latest.data.images, alt: latest.data.alt %}
 </div>
-{%# If we have author notes, include them %}
+
+{%# include page title and authorNotes if available %}
+
 {%# unless latest.content == "" %}
   <div class="authorNotes paperDiv">
     <h1>{{ latest.data.title }}</h1>
@@ -26,12 +29,6 @@ individual collections to use within templates.
     {{ latest.content }}
   </div>
 {%# endunless %}
-
- <div class="paperDiv subPage">
-    <h1>House of Lief</h1>
-    <p>House of lief is the virtual home of your friendly neighborhood cycling cartoonist, Lief. </p>
-    <p>is this issue universal or just on codeberg?</p>
-  </div>
 
 {% comment %} 
 {% render 'comments.liquid' pageUrl: latest.url %}

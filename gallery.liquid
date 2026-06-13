@@ -2,7 +2,12 @@
 title: Gallery
 layout: layouts/page.liquid
 ---
-<!--This gallery page was adapted from https://www.geeksforgeeks.org/javascript/how-to-create-responsive-modal-images-using-css-javascript/. It displays a mobile responsive grid of images and opens a popup modal when an image is clicked showing the image at a larger size and displaying the name of the illustration. Use this for a portfolio page, gallery of fanart, or whatever you want! -->
+<!--This gallery page was adapted from https://www.geeksforgeeks.org/javascript/how-to-create-responsive-modal-images-using-css-javascript/. It displays a 
+mobile responsive grid of images and opens a popup modal when an image is clicked showing the image at a larger size and displaying the name of the illustration.
+ Use this for a portfolio page, gallery of fanart, or whatever you want! -->
+<!-- I highly recommend uploading all images for your site in a webp image format to improve performance on mobile devices and slow connections. If your software
+doesn't allow you to export files in that format, you can use https://jam.dev/utilities/webp-converter or another online image converter. -->
+
 <!--Script controlling the popup modal for the gallery-->
  <script>
         function openModal(modalId, index) {
@@ -33,7 +38,7 @@ layout: layouts/page.liquid
 </div>
 
 
-<!--The gallery popup modal uses a for loop to generate unique modal behavior for each image in the gallery collection--> 
+<!--The gallery popup modal uses a for loop to generate unique modal behavior for each image in the gallery collection. --> 
 
 {% for item in collections.gallery %}
 

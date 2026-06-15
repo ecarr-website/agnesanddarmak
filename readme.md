@@ -2,7 +2,11 @@
 
 I'm lief and I'm a comic artist by night, software QA and SEO analyst by day! This repository is my adaptation of [Katedee's Eleventy-webcomic](https://github.com/katedee/eleventy-webcomic), which is a template, built off of the Rashon's [eleventy-rarebit](https://github.com/the-rashons/eleventy-rarebit-template), which itself is built to replicate the functionality found in [geno7's](https://geno7.neocities.org/) [Rarebit](https://rarebit.neocities.org/) webcomic template.
 
-I'm keeping this repository public so my good friends in the [Comix Accountability Club](https://comixaccountability.club) can use my work to make their own websites. I've made a few main changes to Katedee's work (with a few more underway!). First, I've added a gallery collection and content page. This is for my more professionally inclined colleagues who might have an illustration portfolio they'd like to share alongside their comics. I've also added an archive selector to the index/comics pages, so readers can jump to any page without going to the archive page. Coming soon are some modifications to the archive page to allow more customized arc names, as well as a blog functionality. 
+I'm keeping this repository public so my good friends in the [Comix Accountability Club](https://comixaccountability.club) can use my work to make their own websites. I've made a few changes to Katedees work to fit the specific use case of myself and my friends, as follows:  
+- Added a gallery - based on https://www.geeksforgeeks.org/javascript/how-to-create-responsive-modal-images-using-css-javascript/.
+- minor layout changes to the comic pages
+- added support for post scheduling - just set the date of your page.md file to the date you want the post to go live, and when the job runs that day it will publish that page - otherwise, the post won't be included in the site build. (thanks to [localghost.dev](https://localghost.dev/blog/how-to-schedule-posts-in-eleventy/) for the code for this bit!)
+- and of course, style changes across the site to fit my personal tastes. 
 
 
 
@@ -31,7 +35,7 @@ I'm keeping this repository public so my good friends in the [Comix Accountabili
 ### Netlify
 1. Make sure you have a Github account setup first.
 
-2. Click this button: [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/katedee/eleventy-webcomic)
+2. Click this button: [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/houseoflief/liefs-webcomic)
 
 
 ### Neocities
@@ -81,5 +85,5 @@ tags:
 </div>
 ```
 
-Still curious? [Start exploring the template](https://github.com/covalria-sow/eleventy-rarebit-template/blob/master/index.liquid) or [see it working for yourself](https://eleventy-rarebit.neocities.org/)!
+Still curious? [Start exploring the template](https://github.com/covalria-sow/eleventy-rarebit-template/blob/master/index.liquid) or [see it working for yourself](https://dev.houseoflief.com)!
 

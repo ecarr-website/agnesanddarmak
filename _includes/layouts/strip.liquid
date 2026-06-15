@@ -22,8 +22,9 @@ Liquid file within the template.
 </div>
 {% unless content == "" %}
   <div class="authorNotes paperDiv">
-  <h2>Author's Notes</h2>
-    <p class="authorNotes-date">posted on {{ date | utcDate }}</p>
+  <h2>Author's Note</h2>
+
+    {{ content }}
   </div>
 {% endunless %}
 {% comment %} 

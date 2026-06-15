@@ -6,8 +6,7 @@ I'm keeping this repository public so my good friends in the [Comix Accountabili
 - Added a gallery - based on https://www.geeksforgeeks.org/javascript/how-to-create-responsive-modal-images-using-css-javascript/.
 - minor layout changes to the comic pages
 - added support for post scheduling - just set the date of your page.md file to the date you want the post to go live, and when the job runs that day it will publish that page - otherwise, the post won't be included in the site build. (thanks to [localghost.dev](https://localghost.dev/blog/how-to-schedule-posts-in-eleventy/) for the code for this bit!)
-- and of course, style changes across the site to fit my personal tastes. 
-
+- more robust fix for day behind date issue 
 
 
 ## Features (This text is cloned from katedee's readme) 

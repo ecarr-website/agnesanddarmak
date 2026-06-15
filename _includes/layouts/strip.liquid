@@ -18,9 +18,14 @@ content depending on if we have data, and the `render` tag includes another
 Liquid file within the template.
 {% endcomment %}
 <div class="comic{% if spread %} double-page{% endif %}">
-  {% render 'comic.liquid', collection: collections.comic, page: page, images: images, alt: title, date: date %}
+  {% render 'comic.liquid', collection: collections.comic, page: page, images: images, alt: title, date: date, title: title%}
 </div>
-
+{% unless content == "" %}
+  <div class="authorNotes paperDiv">
+  <h2>Author's Notes</h2>
+    <p class="authorNotes-date">posted on {{ date | utcDate }}</p>
+  </div>
+{% endunless %}
 {% comment %} 
 {% render 'comments.liquid' pageUrl: page.url %}
 {% endcomment %}

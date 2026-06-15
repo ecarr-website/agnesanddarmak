@@ -17,18 +17,17 @@ individual collections to use within templates.
 
 {% assign latest = collections.comic | last %}
 <div class="comic{% if latest.data.spread %} double-page{% endif %}">
-  {% render 'comic.liquid', collection: collections.comic, page: latest.page, images: latest.data.images, alt: latest.data.alt %}
+  {% render 'comic.liquid', collection: collections.comic, page: latest.page, images: latest.data.images, alt: latest.data.alt, title: latest.data.title, date: latest.data.date %}
 </div>
 
 {%# include page title and authorNotes if available %}
 
-{%# unless latest.content == "" %}
+{% unless latest.content == "" %}
   <div class="authorNotes paperDiv">
-    <h1>{{ latest.data.title }}</h1>
+  <h2>Author's Notes</h2>
     <p class="authorNotes-date">posted on {{ latest.date | utcDate }}</p>
-    {{ latest.content }}
   </div>
-{%# endunless %}
+{% endunless %}
 
 {% comment %} 
 {% render 'comments.liquid' pageUrl: latest.url %}

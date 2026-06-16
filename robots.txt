@@ -77,3 +77,4 @@ Disallow: /
 # Note: This will prevent reverse image searches from finding the page. 
 User-agent: *
 Disallow: /img/
+Sitemap: /sitemap.xml

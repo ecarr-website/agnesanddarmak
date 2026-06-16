@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--
+    {% comment %}
     For data that affects the whole site (say, metadata that describes it), we
     can add global data to 11ty's data folder! Feel free to expand the included
     `metadata.json` file with any other information you deem necessary!
     (https://www.11ty.dev/docs/data-global/)
-    -->
+    {% endcomment %}
     <title>{{ metadata.title }}
       {%- if title %}
         | {{ title }}
@@ -18,8 +18,8 @@
     <meta name="description" content="{{ description }}">
     {%- else %}
     <meta name ="description" content="{{ metadata.description }}">
-    {%- endif %
-    }
+    {% endif %}
+    
     <link rel="icon" 
       href="/img/favicon.ico">
     <link href="/css/style.css"

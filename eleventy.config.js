@@ -9,7 +9,7 @@
 
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const lightningCSS = require("@11tyrocks/eleventy-plugin-lightningcss");
+
 
 
 module.exports = function(eleventyConfig) {
@@ -34,12 +34,13 @@ module.exports = function(eleventyConfig) {
 			return !item.data.isSecretCollection;
 			});
 		});
-
-		//Plugin to manage RSS feed
 		eleventyConfig.addPlugin(pluginRss);
 
 		//minifies CSS files to reduce page load times
-		eleventyConfig.addPlugin(lightningCSS);
+		eleventyConfig.addPlugin(clean-css);
+	    eleventyConfig.addFilter("cssmin", function (code) {
+		   return new CleanCSS({}).minify(code).styles;
+	      });
 
 		// Creates filter utcDate to present dates in UTC instead of converting to local time
 		eleventyConfig.addLiquidFilter("utcDate", function(value) { 

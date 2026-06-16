@@ -42,7 +42,7 @@ For more information on collections, see https://www.11ty.dev/docs/collections/ 
             <img src="{{ page.data.images[0] }}" alt="{{ page.data.alt }}" style="width: 100px; height: auto;">
           {% endif %}
           <a href="{{ page.url }}">{{ page.data.title }}</a>
-          <span style="color: gray; font-size: 0.9em;">({{ page.date | dateFix | date: "%B %d, %Y" }})</span>
+          <span style="color: gray; font-size: 0.9em;">({{ page.date | utcDate }})</span>
         </li>
       {% endfor %}
     </ul>

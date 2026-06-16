@@ -22,12 +22,10 @@
     
     <link rel="icon" 
       href="/img/favicon.ico">
-    <!-- capture the CSS content as a Nunjucks variable -->
-{% set css %} {% include "css/style.css" %} {% endset %}
-<!-- feed it through our cssmin filter to minify -->
-<style>
-	{{ css | cssmin | safe }}
-</style>
+    <link href="/css/style.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all" />
     <!-- Fonts are sourced from Google Fonts (https://fonts.google.com/) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">

@@ -38,9 +38,11 @@ module.exports = function(eleventyConfig) {
 
 		//minifies CSS files to reduce page load times
 		eleventyConfig.addPlugin(clean-css);
-	    eleventyConfig.addFilter("cssmin", function (code) {
+		export default function (eleventyConfig) {
+	      eleventyConfig.addFilter("cssmin", function (code) {
 		   return new CleanCSS({}).minify(code).styles;
 	      });
+        };
 
 		// Creates filter utcDate to present dates in UTC instead of converting to local time
 		eleventyConfig.addLiquidFilter("utcDate", function(value) { 

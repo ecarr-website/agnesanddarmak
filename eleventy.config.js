@@ -25,6 +25,15 @@ module.exports = function(eleventyConfig) {
 			  loading: 'lazy'
 			}
 		});
+
+		module.exports = function(eleventyConfig) {
+  // Create a custom collection that mimics "all" but filters items out
+  eleventyConfig.addCollection("filteredAll", function(collectionApi) {
+    return collectionApi.getAll().filter(item => {
+      return !item.data.isSecretCollection;
+    });
+  });
+};
 		eleventyConfig.addPlugin(pluginRss);
 		eleventyConfig.addLiquidFilter("utcDate", function(value) { 
 			const utc= (new Date(value)).toUTCString().split(' ');

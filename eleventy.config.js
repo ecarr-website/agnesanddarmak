@@ -32,7 +32,7 @@ module.exports = function(eleventyConfig) {
 		});
 		eleventyConfig.addFilter("toISOString", (dateObj)) { 
 			return new Date(dateObj).toISOString;
-		});
+		};
 		eleventyConfig.addLiquidFilter("dateFix", function(value) {
         const dateObj = new Date(value);
         const utcString = dateObj.toUTCString();

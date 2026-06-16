@@ -14,17 +14,20 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function(eleventyConfig) {
 		// Copy `img` and `css` folders to output
-		eleventyConfig.addPassthroughCopy("img");
+		
 		eleventyConfig.addPassthroughCopy("css");
 		eleventyConfig.addPassthroughCopy("js");
 		eleventyConfig.addPassthroughCopy("robots.txt");
+
+		//
 		eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-			widths: [100, "auto"], 
+			widths: [100, "auto"],
+			formats: [webp], 
 			defaultAttributes: {
 			  loading: 'lazy'
 			}	
 		});
-
+       eleventyConfig.addPassthroughCopy("img");
 		// creates a mechanism to filter items and collections out of a spoofed "All" collection
 		eleventyConfig.addCollection("filteredAll", function(collectionApi) {
 			return collectionApi.getAll().filter(item => {

@@ -10,7 +10,7 @@ If you want to remove one of the navigation buttons, just remove one of the
 
   {% for panel in images %}
     {% if next %}<a href="{{ next.url }}">{% endif %}
-      <img src="{{ panel }}" alt="{{ alt }}" eleventy:ignore>
+      <img src="{{ panel }}" alt="{{ alt }}">
     {% if next %}</a>{% endif %}   
 {% endfor %}
 

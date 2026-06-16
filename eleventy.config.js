@@ -1,8 +1,7 @@
 /**
  * This is the 11ty config! If you ever need to get underneath the hood of 11ty
  * to add functionality or to sort your collections, this would be the place to
- * do it! In this example however, we just copy over the `img` and `css`
- * folders over to the output.
+ * do it! 
  * (https://www.11ty.dev/docs/config/)
  */
 
@@ -40,21 +39,13 @@ module.exports = function(eleventyConfig) {
 			return `${utc[2]} ${utc[1]}, ${utc[3]}`;
 		});
 
-		// Creates the filter toISOString to convert post dates to YYYY-MM-DD format
+		// Creates the filter toISOString to convert post dates to YYYY-MM-DD format for sitemap
 		eleventyConfig.addFilter("toISOString", function(value) { 
 			const dateObj = new Date(value);
 			const ISOString = dateObj.toISOString().split('T')[0];
 			return ISOString;
 		});
 
-/* 
-		eleventyConfig.addLiquidFilter("dateFix", function(value) {
-        const dateObj = new Date(value);
-        const utcString = dateObj.toUTCString();
-        const [day, month, year] = utcString.split(' ').slice(1, 4);
-        return (day) (month), (year);
-    });	
-*/
        //Creates custom "chapter" collection type, defines process for reprocessing names into Chapter X format
 		eleventyConfig.addAsyncFilter("chapters", async function(collections) { 
 			return Object.keys(collections).filter(function (propertyName) {

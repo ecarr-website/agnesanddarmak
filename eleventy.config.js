@@ -26,13 +26,12 @@ module.exports = function(eleventyConfig) {
 			}	
 		});
 
-module.exports = function(eleventyConfig) {
+
   eleventyConfig.addCollection("filteredAll", function(collectionApi) {
     return collectionApi.getAll().filter(item => {
       return !item.data.isSecretCollection;
     });
   });
-};
 		eleventyConfig.addPlugin(pluginRss);
 		eleventyConfig.addLiquidFilter("utcDate", function(value) { 
 			const utc= (new Date(value)).toUTCString().split(' ');

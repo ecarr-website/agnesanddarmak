@@ -13,17 +13,20 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 
 module.exports = function(eleventyConfig) {
-		// Copy `img` and `css` folders to output
-		eleventyConfig.addPassthroughCopy("img");
+		// Copy `js` and `css` folders to output
 		eleventyConfig.addPassthroughCopy("css");
 		eleventyConfig.addPassthroughCopy("js");
 		eleventyConfig.addPassthroughCopy("robots.txt");
+
+		//Converts images to webp or jpeg to reduce page load times
 		eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 			widths: [100, "auto"], 
+			formats: ["webp","jpeg"],
 			defaultAttributes: {
 			  loading: 'lazy'
 			}	
 		});
+		eleventyConfig.addPassthroughCopy("img");
 
 		// creates a mechanism to filter items and collections out of a spoofed "All" collection
 		eleventyConfig.addCollection("filteredAll", function(collectionApi) {
@@ -32,6 +35,14 @@ module.exports = function(eleventyConfig) {
 			});
 		});
 		eleventyConfig.addPlugin(pluginRss);
+
+		//minifies CSS files to reduce page load times
+		eleventyConfig.addPlugin(clean-css);
+		export default function (eleventyConfig) {
+	      eleventyConfig.addFilter("cssmin", function (code) {
+		   return new CleanCSS({}).minify(code).styles;
+	      });
+        };
 
 		// Creates filter utcDate to present dates in UTC instead of converting to local time
 		eleventyConfig.addLiquidFilter("utcDate", function(value) { 

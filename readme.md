@@ -1,5 +1,7 @@
 --
+{
 "eleventyExcludeFromCollections": true
+}
 --
 # lief's eleventy-webcomic
 

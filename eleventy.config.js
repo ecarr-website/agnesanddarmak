@@ -26,28 +26,36 @@ module.exports = function(eleventyConfig) {
 			}	
 		});
 
-
-  eleventyConfig.addCollection("filteredAll", function(collectionApi) {
-    return collectionApi.getAll().filter(item => {
-      return !item.data.isSecretCollection;
-    });
-  });
+		// creates a mechanism to filter items and collections out of a spoofed "All" collection
+		eleventyConfig.addCollection("filteredAll", function(collectionApi) {
+			return collectionApi.getAll().filter(item => {
+			return !item.data.isSecretCollection;
+			});
+		});
 		eleventyConfig.addPlugin(pluginRss);
+
+		// Creates filter utcDate to present dates in UTC instead of converting to local time
 		eleventyConfig.addLiquidFilter("utcDate", function(value) { 
 			const utc= (new Date(value)).toUTCString().split(' ');
 			return `${utc[2]} ${utc[1]}, ${utc[3]}`;
 		});
+
+		// Creates the filter toISOString to convert post dates to YYYY-MM-DD format
 		eleventyConfig.addFilter("toISOString", function(value) { 
 			const dateObj = new Date(value);
 			const ISOString = dateObj.toISOString().split('T')[0];
 			return ISOString;
 		});
+
+/* 
 		eleventyConfig.addLiquidFilter("dateFix", function(value) {
         const dateObj = new Date(value);
         const utcString = dateObj.toUTCString();
         const [day, month, year] = utcString.split(' ').slice(1, 4);
         return (day) (month), (year);
     });	
+*/
+       //Creates custom "chapter" collection type, defines process for reprocessing names into Chapter X format
 		eleventyConfig.addAsyncFilter("chapters", async function(collections) { 
 			return Object.keys(collections).filter(function (propertyName) {
 				if (propertyName.indexOf("chapter") === 0){

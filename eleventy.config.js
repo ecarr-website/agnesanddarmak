@@ -23,11 +23,10 @@ module.exports = function(eleventyConfig) {
 			widths: [100, "auto"], 
 			defaultAttributes: {
 			  loading: 'lazy'
-			}
+			}	
 		});
 
-		module.exports = function(eleventyConfig) {
-  // Create a custom collection that mimics "all" but filters items out
+module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("filteredAll", function(collectionApi) {
     return collectionApi.getAll().filter(item => {
       return !item.data.isSecretCollection;

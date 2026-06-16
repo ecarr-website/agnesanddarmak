@@ -1,3 +1,6 @@
+--
+"eleventyExcludeFromCollections": true
+--
 # lief's eleventy-webcomic
 
 I'm lief and I'm a comic artist by night, software QA and SEO analyst by day! This repository is my adaptation of [Katedee's Eleventy-webcomic](https://github.com/katedee/eleventy-webcomic), which is a template, built off of the Rashon's [eleventy-rarebit](https://github.com/the-rashons/eleventy-rarebit-template), which itself is built to replicate the functionality found in [geno7's](https://geno7.neocities.org/) [Rarebit](https://rarebit.neocities.org/) webcomic template.

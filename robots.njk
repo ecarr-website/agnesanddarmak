@@ -1,3 +1,8 @@
+---
+permalink: /robots.txt
+layout: false
+eleventyExcludeFromCollections: true
+---
 #################################
 # The robots.txt file
 #################################
@@ -77,4 +82,4 @@ Disallow: /
 # Note: This will prevent reverse image searches from finding the page. 
 User-agent: *
 Disallow: /img/
-Sitemap: /sitemap.xml
+Sitemap: {{ metadata.base }}/sitemap.xml

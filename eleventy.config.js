@@ -62,7 +62,7 @@ module.exports = function(eleventyConfig) {
 		});	
 		
 		//Creates draft posts and excludes them from buld
-		eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
+		eleventyConfig.addPreprocessor("drafts", "njk,md,liquid", (data, content) => {
 			if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
 				return false;
 			}

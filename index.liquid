@@ -26,6 +26,7 @@ individual collections to use within templates.
   <div class="authorNotes paperDiv">
   <h2>Author's Notes</h2>
     <p class="authorNotes-date">posted on {{ latest.date | utcDate }}</p>
+    {{ latest.content }}
   </div>
 {% endunless %}
 

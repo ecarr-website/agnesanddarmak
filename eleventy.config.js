@@ -60,6 +60,18 @@ module.exports = function(eleventyConfig) {
 				}
 			});
 		});	
+		
+		//Creates draft posts and excludes them from buld
+		eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
+			if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+				return false;
+			}
+			const now = Date.now();
+			if(Date(data.date) > now && process.env.ELEVENTY_RUN_MODE === "build") {
+				return false;
+			}
+		});
+		eleventyConfig.addPreprocessor()
 
 
 }

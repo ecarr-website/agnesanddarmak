@@ -8,8 +8,6 @@
  * @import lets you break up your CSS into multiple files; I use it here to
  * seperate the reset settings from the rest of the styles and to import the comments styles.
  */
-@import "/css/reset.css";
-@import "/css/comments.css";
 
 :root {
   --pg-width: min(64rem, 90%);

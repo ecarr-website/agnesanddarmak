@@ -17,7 +17,6 @@ module.exports = function(eleventyConfig) {
 		// Copy `img` and `css` folders to output
 		eleventyConfig.addPassthroughCopy("img");
 		eleventyConfig.addPassthroughCopy("js");
-		eleventyConfig.addPassthroughCopy("robots.txt");
 
 		//convert images to webp, use lazy loading
 		eleventyConfig.addPlugin(eleventyImageTransformPlugin, {

@@ -9,8 +9,7 @@
 const CleanCSS = require("clean-css");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const sass = require('sass');
-const path = require('node:path');
+const now = Date.now();
 
 
 module.exports = function(eleventyConfig) {
@@ -60,14 +59,13 @@ module.exports = function(eleventyConfig) {
 				}
 			});
 		});	
-		
+
 		//Creates draft posts and excludes them from buld
 		eleventyConfig.addPreprocessor("drafts", "njk,md,liquid", (data, content) => {
 			if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
 				return false;
 			}
-			const now = Date.now();
-			if(Date(data.date) > now && process.env.ELEVENTY_RUN_MODE === "build") {
+			else if(Date(data.date) > now && process.env.ELEVENTY_RUN_MODE === "build") {
 				return false;
 			}
 		});

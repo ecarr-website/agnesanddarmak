@@ -9,7 +9,7 @@
     `metadata.json` file with any other information you deem necessary!
     (https://www.11ty.dev/docs/data-global/)
     {% endcomment %}
-    
+
     <title>{{ metadata.title }}
       {%- if title %}
         | {{ title }}
@@ -24,15 +24,15 @@
     <link rel="icon" 
       href="/img/favicon.ico">
 
-{% capture css %} {% include "css/reset.css" %} {% endcapture %}
+{% capture css %} {% include "../_includes/css/reset.css" %} {% endcapture %}
       <style>
 	      {{ css | cssmin }}
       </style>
-{% capture css %} {% include "css/comments.css" %} {% endcapture %}
+{% capture css %} {% include "../_includes/css/comments.css" %} {% endcapture %}
       <style>
 	      {{ css | cssmin }}
       </style>
-{% capture css %} {% include "css/style.css" %} {% endcapture %}
+{% capture css %} {% include "../_includes/css/style.css" %} {% endcapture %}
       <style>
 	      {{ css | cssmin }}
       </style>

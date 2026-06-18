@@ -6,28 +6,32 @@
  */
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
-
+const CleanCSS = require("clean-css");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-
+const sass = require('sass');
+const path = require('node:path');
 
 
 module.exports = function(eleventyConfig) {
 		// Copy `img` and `css` folders to output
-		
-		eleventyConfig.addPassthroughCopy("css");
+		eleventyConfig.addPassthroughCopy("img");
 		eleventyConfig.addPassthroughCopy("js");
 		eleventyConfig.addPassthroughCopy("robots.txt");
 
-		//
+		//convert images to webp, use lazy loading
 		eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-			widths: [100, "auto"],
-			formats: [webp], 
+			widths: [100, "auto"], 
 			defaultAttributes: {
 			  loading: 'lazy'
 			}	
 		});
-       eleventyConfig.addPassthroughCopy("img");
+
+		//minify css
+		  eleventyConfig.addFilter("cssmin", function (code) {
+			return new CleanCSS({}).minify(code).styles;
+		  });
+
 		// creates a mechanism to filter items and collections out of a spoofed "All" collection
 		eleventyConfig.addCollection("filteredAll", function(collectionApi) {
 			return collectionApi.getAll().filter(item => {

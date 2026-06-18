@@ -9,6 +9,7 @@
     `metadata.json` file with any other information you deem necessary!
     (https://www.11ty.dev/docs/data-global/)
     {% endcomment %}
+    
     <title>{{ metadata.title }}
       {%- if title %}
         | {{ title }}
@@ -22,10 +23,20 @@
     
     <link rel="icon" 
       href="/img/favicon.ico">
-    <link href="/css/style.css"
-      rel="stylesheet"
-      type="text/css"
-      media="all" />
+
+{% capture css %} {% include "css/reset.css" %} {% endcapture %}
+      <style>
+	      {{ css | cssmin }}
+      </style>
+{% capture css %} {% include "css/comments.css" %} {% endcapture %}
+      <style>
+	      {{ css | cssmin }}
+      </style>
+{% capture css %} {% include "css/style.css" %} {% endcapture %}
+      <style>
+	      {{ css | cssmin }}
+      </style>
+  
     <!-- Fonts are sourced from Google Fonts (https://fonts.google.com/) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">

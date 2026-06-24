@@ -13,9 +13,9 @@
   --pg-width: min(64rem, 90%);
   /* page width for double/spread pages that are one page */
   --double-pg-width: min(84rem, 100%);
-  --bg-color: #8A3511;
-  --text-color: #8A3511;
-  --content-bg: #FFebca;
+  --bg-color: #118a4f;
+  --text-color: #21118a;
+  --content-bg: #c3f4f7;
   --border-color: #BF742F;
   --link-color: #3C4022;
   --link-color-hover: #616837;

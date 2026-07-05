@@ -2,7 +2,7 @@
 title: About
 layout: layouts/page.liquid
 ---
-Lief is a trans man living in Columbus, OH, staunchly refusing to move despite the state legislators doing their level best to scare him off. When he's not working on House of Lief, he can be found riding his bike and complaining about his arch nemesis John Kaschic, who among his many other inadequacies as a politician, refused to accept grant money for an Amtrak line in Columbus in 2013. He also manages the websites for the Queer Zest Zine Fest and Comix Accountability Club.
+Test Test Test Test Test
 
 ## Notes for Nerds
 

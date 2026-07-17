@@ -13,12 +13,12 @@
   --pg-width: min(64rem, 90%);
   /* page width for double/spread pages that are one page */
   --double-pg-width: min(84rem, 100%);
-  --bg-color: #3699b7;
+  --bg-color: #5b85aa;
   --text-color: #0f293c;
   --content-bg: #b1cbe2;
-  --border-color: #BF742F;
-  --link-color: #3C4022;
-  --link-color-hover: #616837;
+  --border-color: #8396a7;
+  --link-color: #0f293c;
+  --link-color-hover: #a4d3ff;
   
 }
 
